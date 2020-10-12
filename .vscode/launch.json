@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run CricketWithGopesh1-withGopesh",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/cricketwithgopesh1-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/areyoureadytoplaywithGopesh/index.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/withGopesh",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"dist\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/CricketWithGopesh1/withGopesh\"}"
+      },
+      "envFile": "${workspaceFolder}/withGopesh/.env1",
+      "preLaunchTask": "Build CricketWithGopesh1"
+    }
+  ]
+}

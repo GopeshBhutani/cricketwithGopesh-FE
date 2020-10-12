@@ -1,0 +1,106 @@
+<mvc:View
+	controllerName="areyouready.to.play.withGopesh.controller.Worklist"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic">
+
+	<semantic:SemanticPage
+		id="page"
+		headerPinnable="false"
+		toggleHeaderOnTitleClick="false">
+
+		<semantic:titleHeading>
+			<Title text="{i18n>worklistTitle}" />
+		</semantic:titleHeading>
+
+		<semantic:content>
+			<Table
+				id="table"
+				width="auto"
+				items="{
+					path: '/Teams',
+					sorter: {
+						path: 'name',
+						descending: false
+					}
+				}"
+				noDataText="{worklistView>/tableNoDataText}"
+				growing="true"
+				growingScrollToLoad="true"
+				updateFinished=".onUpdateFinished">
+
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="IPL Teams"/>
+						<ToolbarSpacer />
+						<SearchField
+							id="searchField"
+							tooltip="{i18n>worklistSearchTooltip}"
+							search=".onSearch"
+							width="auto">
+						</SearchField>
+					</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="nameColumn">
+						<Text text="Team Name" id="nameColumnTitle"/>
+					</Column>
+					<Column id="unitNumberColumn" hAlign="End">
+						<Text text="Match Played" id="unitNumberColumnTitle"/>
+					</Column>
+
+                    <Column id="1" hAlign="End">
+						<Text text="Won" id="matchWonText"/>
+					</Column>
+                    <Column id="2" hAlign="End">
+						<Text text="Lost" id="matchLostText"/>
+					</Column>
+                     <Column id="3" hAlign="End">
+						<Text text="Points" id="matchPointsText"/>
+					</Column>
+                     <Column id="4" hAlign="End">
+						<Text text="Position" id="matchPosText"/>
+					</Column>
+                    
+
+				</columns>
+
+				<items>
+					<ColumnListItem
+						type="Navigation"
+						press=".onPress">
+						<cells>
+							<ObjectIdentifier
+								title="{name}"
+                                text="{country}"/>
+                            <Text
+						text="{match_played}" />
+                        <Text
+						text="{won}" />
+                        <Text
+						text="{lost}" />
+                        <Text
+						text="{points}" />
+                        <Text
+						text="{position}" />
+							<!-- <ObjectNumber
+								number="{
+									path: 'match_played',
+									formatter: '.formatter.numberUnit'
+								}"
+								unit="{won}"/> -->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+
+	</semantic:SemanticPage>
+
+</mvc:View>
