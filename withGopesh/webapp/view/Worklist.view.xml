@@ -20,7 +20,7 @@
 				items="{
 					path: '/Teams',
 					sorter: {
-						path: 'position',
+						path: 'name',
 						descending: false
 					}
 				}"
